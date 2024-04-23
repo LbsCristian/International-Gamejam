@@ -27,15 +27,32 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        
         movement = new Vector2(horizontalInput, verticalInput).normalized*speed;
         verticalInput = Input.GetAxisRaw("Vertical");
         horizontalInput = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector3(movement.x, movement.y, 0);
+
         
+        if (horizontalInput == 1)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        if (horizontalInput == -1)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 180);
+        }
+        if (verticalInput != 0)
+        {
+            transform.eulerAngles = new Vector3(0, 0, verticalInput*90);
+        }
+        
+
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             if (Physics2D.OverlapBox(transform.position, new Vector2(1.5f, 1.5f),0,pickupable))
             {

@@ -11,12 +11,13 @@ public class Disappear : MonoBehaviour
 
     SpriteRenderer mySpriteRenderer;
     BoxCollider2D boxCollider2D;
+    Collider2D thecollider;
     
     void Start()
     {
         playerSwitch = player.GetComponent<Switch>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
-        boxCollider2D = GetComponent<BoxCollider2D>();
+        thecollider = GetComponent<Collider2D>();
 
         
     }
@@ -27,14 +28,19 @@ public class Disappear : MonoBehaviour
         if (playerSwitch.playerWorld==objectWorld)
         {
             mySpriteRenderer.enabled = true;
-            boxCollider2D.enabled = true;
+            thecollider.enabled = true;
         }
         else
         {
 
             mySpriteRenderer.enabled = false;
-            boxCollider2D.enabled = false;
+            thecollider.enabled = false;
 
+        }
+
+        if (transform.parent == player.transform)
+        {
+            objectWorld = playerSwitch.playerWorld;
         }
     }
 }
