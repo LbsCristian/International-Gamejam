@@ -7,9 +7,9 @@ public class ThrowBoomerang : MonoBehaviour
     // Start is called before the first frame update
     public GameObject player;
     Rigidbody2D rb;
-    Collider2D collider;
+    Collider2D objectCollider;
     bool thrown;
-    float throwtimer=0;
+    public float throwtimer=0;
     int throwstrenght = 20;
 
     SpriteRenderer sr;
@@ -17,7 +17,7 @@ public class ThrowBoomerang : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        collider = GetComponent<Collider2D>();
+        objectCollider = GetComponent<Collider2D>();
         sr.enabled = false;
     }
 
@@ -36,7 +36,8 @@ public class ThrowBoomerang : MonoBehaviour
         }
         if (thrown)
         {
-            collider.enabled = true;
+            transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z +1);
+            GetComponent<Collider2D>().enabled = true;
             //adds a force towards the player
             rb.AddForce((player.transform.position - transform.position)*1.5f);
             throwtimer+=100*Time.deltaTime;
@@ -45,14 +46,14 @@ public class ThrowBoomerang : MonoBehaviour
                 rb.velocity = new Vector2(0, 0);
                 thrown = false;
                 sr.enabled = false;
-                collider.enabled = false;
+                GetComponent<Collider2D>().enabled = false;
             }
             if (throwtimer > 200)
             {
 
                 
                 rb.velocity=((player.transform.position - transform.position) * 10);
-                collider.enabled = false;
+                GetComponent<Collider2D>().enabled = false;
                 
 
             }

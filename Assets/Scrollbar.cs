@@ -1,24 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Pickup : MonoBehaviour
+public class Scrollbar : MonoBehaviour
 {
+    public GameObject enemy;
     // Start is called before the first frame update
-    public GameObject player;
+    Slider theSlider;
     void Start()
     {
-        
+        theSlider = GetComponent<Slider>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-    }
-    public void PickedUp()
-    { 
-        transform.position = player.transform.position;
-        transform.parent = player.transform;
+        theSlider.value = enemy.GetComponent<ChasePlayer>().appearTimer;
     }
 }
