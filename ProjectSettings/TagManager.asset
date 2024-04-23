@@ -42,3 +42,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 1694294993
+    locked: 0
+  - name: Wall
+    uniqueID: 3447816301
+    locked: 0
+  - name: ElevatedGround
+    uniqueID: 2192202585
+    locked: 0
+  - name: PlayerObjects
+    uniqueID: 4095174583
+    locked: 0
