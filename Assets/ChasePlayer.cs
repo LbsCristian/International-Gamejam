@@ -9,9 +9,9 @@ public class ChasePlayer : MonoBehaviour
     // Start is called before the first frame update
     public GameObject player;
     Switch playerswitch;
-    float appearTimer=0;
+    public float appearTimer=0;
     SpriteRenderer sr;
-    public float appearfade;
+    
     Rigidbody2D rb;
     [SerializeField]
     float speed;
@@ -38,7 +38,7 @@ public class ChasePlayer : MonoBehaviour
         if (playerswitch.playerWorld == 2&&appearTimer<100)
         {
             rb.velocity = Vector2.zero;
-            appearTimer+=100*Time.deltaTime;
+            appearTimer+=5*Time.deltaTime;
             
             
             
