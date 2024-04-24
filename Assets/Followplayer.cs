@@ -18,16 +18,17 @@ public class Followplayer : MonoBehaviour
     void Update()
     {
         transform.position = new Vector3(player.transform.position.x,player.transform.position.y,-10);
-        if (playerworld.playerWorld == 1)
+        /*if (playerworld.playerWorld == 1)
         {
-            cam.backgroundColor = new Color(0.173f, 0.112f, 0.160f);
+            cam.backgroundColor = new Color(173, 112, 160);
 
 
         }
         else
         {
-            cam.backgroundColor = new Color(0.34f, 0.44f, 0.54f);
+            cam.backgroundColor = new Color(34, 44, 54);
 
         }
+        */
     }
 }

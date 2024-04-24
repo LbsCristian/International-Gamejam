@@ -49,7 +49,7 @@ public class ChasePlayer : MonoBehaviour
         if (playerswitch.playerWorld == 1&&appearTimer<100)
         {
             rb.velocity = Vector2.zero;
-            appearTimer+=5*Time.deltaTime;
+            appearTimer+=8*Time.deltaTime;
             Animator.speed = 0;
             
             
@@ -61,7 +61,7 @@ public class ChasePlayer : MonoBehaviour
         else if(playerswitch.playerWorld==2&&appearTimer>0)
         {    
             rb.velocity = Vector2.zero;
-            appearTimer -=Time.deltaTime*4;
+            appearTimer -=Time.deltaTime*5;
             Animator.speed = 0;
             
         }
