@@ -9,10 +9,11 @@ public class Movement : MonoBehaviour
     [SerializeField]
     float speed = 10;
     float horizontalInput;
-    float verticalInput;
+    public float verticalInput;
     Vector2 movement;
     [SerializeField]
     BoxCollider2D pickupTrigger;
+    Animator walkingAnimator;
 
     public LayerMask pickupable;
     ContactFilter2D coctactFilter;
@@ -21,6 +22,7 @@ public class Movement : MonoBehaviour
     {
        
         rb = GetComponent<Rigidbody2D>();
+        walkingAnimator = GetComponent<Animator>();
         
     }
 
@@ -40,7 +42,15 @@ public class Movement : MonoBehaviour
         }
         if (horizontalInput == -1)
         {
-            transform.eulerAngles = new Vector3(0, 180, 0);
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        if (verticalInput == -1)
+        {
+            walkingAnimator.SetBool("Movingvertically", true);
+        }
+        else
+        {
+            walkingAnimator.SetBool("Movingvertically", false);
         }
         
         

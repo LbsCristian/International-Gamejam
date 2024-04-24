@@ -30,7 +30,22 @@ public class ThrowBoomerang : MonoBehaviour
             throwtimer = 0;
             thrown = true;
             transform.position = player.transform.position;
-            rb.velocity=player.transform.right*throwstrenght;
+            if (player.GetComponent<Movement>().verticalInput==0) 
+            {
+                rb.velocity = player.transform.right * -throwstrenght;
+            }
+            else
+            {
+                if (player.GetComponent<Movement>().verticalInput == 1)
+                {
+                    rb.velocity = Vector2.up * throwstrenght;
+                }
+                else
+                {
+                    rb.velocity = Vector2.down * throwstrenght;
+                }
+            }
+            
           
 
         }
