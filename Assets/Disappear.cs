@@ -42,5 +42,6 @@ public class Disappear : MonoBehaviour
         {
             objectWorld = playerSwitch.playerWorld;
         }
+        
     }
 }

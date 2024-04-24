@@ -12,12 +12,14 @@ public class Button : MonoBehaviour
     public bool isToggle;
     bool on;
     bool touching;
+    SpriteRenderer sr;
 
 
     // Start is called before the first frame update
     void Start()
     {
         pc = GetComponent<PolygonCollider2D>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -27,11 +29,14 @@ public class Button : MonoBehaviour
         {
             linkedObject.GetComponent<SpriteRenderer>().enabled = false;
             linkedObject.GetComponent<Collider2D>().enabled = false;
+            sr.color = new Color(1, 0.5f, 1);
+
         }
         else
         {
             linkedObject.GetComponent<SpriteRenderer>().enabled = true;
             linkedObject.GetComponent<Collider2D>().enabled = true;
+            sr.color = new Color(1, 1, 1);
         }
 
         if (pc.OverlapCollider(cc, results) != 0)
