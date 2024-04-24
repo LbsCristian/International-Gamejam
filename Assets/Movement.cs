@@ -36,16 +36,13 @@ public class Movement : MonoBehaviour
         
         if (horizontalInput == 1)
         {
-            transform.eulerAngles = new Vector3(0, 0, 0);
+            transform.eulerAngles = new Vector3(0, 180, 0);
         }
         if (horizontalInput == -1)
         {
-            transform.eulerAngles = new Vector3(0, 0, 180);
+            transform.eulerAngles = new Vector3(0, 180, 0);
         }
-        if (verticalInput != 0)
-        {
-            transform.eulerAngles = new Vector3(0, 0, verticalInput*90);
-        }
+        
         
 
     }
