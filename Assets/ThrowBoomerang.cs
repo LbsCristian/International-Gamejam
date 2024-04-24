@@ -36,10 +36,10 @@ public class ThrowBoomerang : MonoBehaviour
         }
         if (thrown)
         {
-            transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z +1);
+            transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z +250*Time.deltaTime);
             GetComponent<Collider2D>().enabled = true;
             //adds a force towards the player
-            rb.AddForce((player.transform.position - transform.position)*1.5f);
+            rb.AddForce((player.transform.position - transform.position)*250f*Time.deltaTime);
             throwtimer+=100*Time.deltaTime;
             if (Mathf.Abs(Vector3.Distance(transform.position, player.transform.position)) < 1 && throwtimer > 50)
             { 
