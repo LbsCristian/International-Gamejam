@@ -51,7 +51,7 @@ public class ThrowBoomerang : MonoBehaviour
         }
         if (thrown)
         {
-            transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z +250*Time.deltaTime);
+            transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z +300*Time.deltaTime);
             GetComponent<Collider2D>().enabled = true;
             //adds a force towards the player
             rb.AddForce((player.transform.position - transform.position)*250f*Time.deltaTime);
@@ -63,7 +63,7 @@ public class ThrowBoomerang : MonoBehaviour
                 sr.enabled = false;
                 GetComponent<Collider2D>().enabled = false;
             }
-            if (throwtimer > 200)
+            if (throwtimer > 250)
             {
 
                 

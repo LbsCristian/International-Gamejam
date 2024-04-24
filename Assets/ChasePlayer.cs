@@ -46,7 +46,7 @@ public class ChasePlayer : MonoBehaviour
             invincibilityFrames--;
         }
         sr.color =new Color(1f, 1f, 1f, ((appearTimer)/100));
-        if (playerswitch.playerWorld == 2&&appearTimer<100)
+        if (playerswitch.playerWorld == 1&&appearTimer<100)
         {
             rb.velocity = Vector2.zero;
             appearTimer+=5*Time.deltaTime;
@@ -58,7 +58,7 @@ public class ChasePlayer : MonoBehaviour
             
         }
         
-        else if(playerswitch.playerWorld==1&&appearTimer>0)
+        else if(playerswitch.playerWorld==2&&appearTimer>0)
         {    
             rb.velocity = Vector2.zero;
             appearTimer -=Time.deltaTime*4;
