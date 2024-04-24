@@ -61,11 +61,11 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            if (Physics2D.OverlapBox(transform.position, new Vector2(1.5f, 1.5f),0,pickupable))
+            if (Physics2D.OverlapCircle(transform.position, 1.5f, pickupable))
             {
                 if (transform.childCount == 0)
                 {
-                    pickupobject = Physics2D.OverlapBox(transform.position, new Vector2(1.5f, 1.5f), 0, pickupable);
+                    pickupobject = Physics2D.OverlapCircle(transform.position, 1.5f, pickupable);
                     pickupobject.gameObject.GetComponent<Pickup>().PickedUp();
                 }
                 else
@@ -79,6 +79,6 @@ public class Movement : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(transform.position, new Vector3(1.5f, 1.5f, 0));
+        Gizmos.DrawWireSphere(transform.position, 1.5f);
     }
 }

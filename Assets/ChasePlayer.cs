@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ChasePlayer : MonoBehaviour
 {
@@ -79,6 +80,10 @@ public class ChasePlayer : MonoBehaviour
         {   
             rb.AddForce(collision.gameObject.transform.right * 10,ForceMode2D.Impulse);
             invincibilityFrames=200;
+        }
+        if (collision.gameObject.name == "Player" && invincibilityFrames < 1&&appearTimer>=100)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
