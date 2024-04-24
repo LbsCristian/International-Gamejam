@@ -39,18 +39,30 @@ public class Movement : MonoBehaviour
         if (horizontalInput == 1)
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
+            walkingAnimator.SetBool("Movinghorizontally",true);
         }
-        if (horizontalInput == -1)
+        else if (horizontalInput == -1)
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
+            walkingAnimator.SetBool("Movinghorizontally", true);
+        }
+        else
+        {
+            walkingAnimator.SetBool("Movinghorizontally", false);
         }
         if (verticalInput == -1)
         {
             walkingAnimator.SetBool("Movingvertically", true);
+            walkingAnimator.SetBool("Movinghorizontally", false);
         }
         else
         {
             walkingAnimator.SetBool("Movingvertically", false);
+
+        }
+        if (verticalInput == 1)
+        {
+            walkingAnimator.SetBool("Movinghorizontally", true);
         }
         
         
